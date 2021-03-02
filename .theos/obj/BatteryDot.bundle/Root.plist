@@ -11,68 +11,68 @@
 			<string>Status Bar Icon</string>
 		</dict>
 		<dict>
-			<key>cell</key> 					
+			<key>cell</key>
 			<string>PSLinkCell</string>
-			<key>cellClass</key> 				
-			<string>HBColorPickerTableCell</string>
-			<key>defaults</key> 				
+			<key>cellClass</key>
+			<string>CSColorDisplayCell</string>
+			<key>defaults</key>
 			<string>com.greg0109.batterydotprefs</string>
-			<key>default</key> 					
-			<string>#FF0000</string>
-			<key>label</key> 					
-			<string>Full battery</string>
-			<key>showAlphaSlider</key> 				
-			<true/>
-			<key>key</key> 						
+			<key>key</key>
 			<string>fullBattery</string>
+			<key>label</key>
+			<string>Battery Full</string>
+			<key>fallback</key>
+			<string>FFFFFF</string>
+			<key>alpha</key>
+			<true/>
 		</dict>
 		<dict>
-			<key>cell</key> 					
+			<key>cell</key>
 			<string>PSLinkCell</string>
-			<key>cellClass</key> 				
-			<string>HBColorPickerTableCell</string>
-			<key>defaults</key> 				
+			<key>cellClass</key>
+			<string>CSColorDisplayCell</string>
+			<key>defaults</key>
 			<string>com.greg0109.batterydotprefs</string>
-			<key>default</key> 					
-			<string>#FF0000</string>
-			<key>label</key> 					
-			<string>Battery Charging</string>
-			<key>showAlphaSlider</key> 				
-			<true/>
-			<key>key</key> 						
+			<key>key</key>
 			<string>batteryCharging</string>
+			<key>label</key>
+			<string>Battery Charging</string>
+			<key>fallback</key>
+			<string>FFFFFF</string>
+			<key>alpha</key>
+			<true/>
 		</dict>
 		<dict>
-			<key>cell</key> 					
+			<key>cell</key>
 			<string>PSLinkCell</string>
-			<key>cellClass</key> 				
-			<string>HBColorPickerTableCell</string>
-			<key>defaults</key> 				
+			<key>cellClass</key>
+			<string>CSColorDisplayCell</string>
+			<key>defaults</key>
 			<string>com.greg0109.batterydotprefs</string>
-			<key>default</key> 					
-			<string>#FF0000</string>
-			<key>label</key> 					
-			<string>Battery Charging + Full</string>
-			<key>showAlphaSlider</key> 				
-			<true/>
-			<key>key</key> 						
+			<key>key</key>
 			<string>batteryChargingFull</string>
+			<key>label</key>
+			<string>Battery Charging + Full</string>
+			<key>fallback</key>
+			<string>FFFFFF</string>
+			<key>alpha</key>
+			<true/>
 		</dict>
 		<dict>
-			<key>cell</key> 					
+			<key>cell</key>
 			<string>PSLinkCell</string>
-			<key>cellClass</key> 				
-			<string>HBColorPickerTableCell</string>
-			<key>defaults</key> 				
+			<key>cellClass</key>
+			<string>CSColorDisplayCell</string>
+			<key>defaults</key>
 			<string>com.greg0109.batterydotprefs</string>
-			<key>default</key> 					
-			<string>#FF0000</string>
-			<key>label</key> 					
-			<string>Battery Discharging</string>
-			<key>showAlphaSlider</key> 				
-			<true/>
-			<key>key</key> 						
+			<key>key</key>
 			<string>batteryDischarging</string>
+			<key>label</key>
+			<string>Battery Discharging</string>
+			<key>fallback</key>
+			<string>FFFFFF</string>
+			<key>alpha</key>
+			<true/>
 		</dict>
 		<dict>
 			<key>cell</key>
@@ -91,20 +91,20 @@
 			<string>lowbatterypercentage</string>
 		</dict>
 		<dict>
-			<key>cell</key> 					
+			<key>cell</key>
 			<string>PSLinkCell</string>
-			<key>cellClass</key> 				
-			<string>HBColorPickerTableCell</string>
-			<key>defaults</key> 				
+			<key>cellClass</key>
+			<string>CSColorDisplayCell</string>
+			<key>defaults</key>
 			<string>com.greg0109.batterydotprefs</string>
-			<key>default</key> 					
-			<string>#FF0000</string>
-			<key>label</key> 					
-			<string>Low Battery</string>
-			<key>showAlphaSlider</key> 				
-			<true/>
-			<key>key</key> 						
+			<key>key</key>
 			<string>batteryLow</string>
+			<key>label</key>
+			<string>Battery Low</string>
+			<key>fallback</key>
+			<string>FFFFFF</string>
+			<key>alpha</key>
+			<true/>
 		</dict>
 		<dict>
 			<key>cell</key>

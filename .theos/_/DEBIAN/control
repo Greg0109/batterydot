@@ -5,6 +5,6 @@ Description: Little customizable battery dot!
 Maintainer: Greg0109
 Author: Greg0109
 Section: Tweaks
-Depends: mobilesubstrate (>= 0.9.5000), colorpicker
-Version: 1.0.1
+Depends: mobilesubstrate (>= 0.9.5000), com.creaturesurvive.libcscolorpicker
+Version: 1.0.4
 Installed-Size: 316

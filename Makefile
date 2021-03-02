@@ -7,7 +7,6 @@ TWEAK_NAME = BatteryDot
 
 BatteryDot_FILES = Tweak.x
 BatteryDot_FRAMEWORKS = UIKit
-BatteryDot_LIBRARIES = colorpicker
 BatteryDot_CFLAGS = -fobjc-arc
 
 include $(THEOS_MAKE_PATH)/tweak.mk
