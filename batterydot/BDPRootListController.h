@@ -8,4 +8,5 @@
 @end
 
 @interface BDPRootListController : PSListController
+-(void)loadNotificationIcon;
 @end

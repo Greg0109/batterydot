@@ -1,6 +1,6 @@
 Package: com.greg0109.batterydot
 Name: BatteryDot
-Version: 1.0.4
+Version: 1.0.6
 Architecture: iphoneos-arm
 Description: Little customizable battery dot!
 Maintainer: Greg0109

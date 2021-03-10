@@ -84,7 +84,7 @@
 			<key>cell</key>
 			<string>PSEditTextCell</string>
 			<key>placeholder</key>
-			<string>Battery percentage (without %)</string>
+			<string>Low battery percentage:</string>
 			<key>defaults</key>
 			<string>com.greg0109.batterydotprefs</string>
 			<key>key</key>
@@ -110,7 +110,7 @@
 			<key>cell</key>
 			<string>PSLabelCell</string>
 			<key>label</key>
-			<string>X Coordinates</string>
+			<string>X Coordinates:</string>
 		</dict>
 		<dict>
 			<key>cell</key> 					
@@ -124,7 +124,7 @@
 			<key>min</key>
 			<real>0</real>
 			<key>max</key>
-			<real>100</real>
+			<real>1242</real>
 			<key>default</key>
 			<integer>50</integer>
 			<key>showValue</key>
@@ -136,7 +136,7 @@
 			<key>cell</key>
 			<string>PSLabelCell</string>
 			<key>label</key>
-			<string>Y Coordinate</string>
+			<string>Y Coordinates:</string>
 		</dict>
 		<dict>
 			<key>cell</key> 					
@@ -150,7 +150,7 @@
 			<key>min</key>
 			<real>0</real>
 			<key>max</key>
-			<real>100</real>
+			<real>2688</real>
 			<key>default</key>
 			<integer>50</integer>
 			<key>showValue</key>
@@ -172,7 +172,33 @@
 			<key>key</key> 						
 			<string>iconsize</string>
 			<key>label</key> 					
-			<string>Icon size</string>
+			<string>Icon size:</string>
+			<key>min</key>
+			<real>0</real>
+			<key>max</key>
+			<real>100</real>
+			<key>default</key>
+			<integer>50</integer>
+			<key>showValue</key>
+			<true/>
+			<key>PostNotification</key>
+			<string>com.greg0109.batterydotprefs.showIcon</string>
+    	</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSLabelCell</string>
+			<key>label</key>
+			<string>Alpha:</string>
+		</dict>
+		<dict>
+			<key>cell</key> 					
+			<string>PSSliderCell</string>
+			<key>defaults</key> 				
+			<string>com.greg0109.batterydotprefs</string>
+			<key>key</key> 						
+			<string>alpha</string>
+			<key>label</key> 					
+			<string>Alpha</string>
 			<key>min</key>
 			<real>0</real>
 			<key>max</key>

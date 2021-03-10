@@ -1,3 +1,4 @@
+#line 1 "Tweak.x"
 #import <UIKit/UIKit.h>
 
 @interface _UIStatusBar
@@ -12,7 +13,7 @@
 @end
 
 @interface SBApplication
-@property (nonatomic,readonly) NSString * bundleIdentifier;                                                                                     //@synthesize bundleIdentifier=_bundleIdentifier - In the implementation block
+@property (nonatomic,readonly) NSString * bundleIdentifier;                                                                                     
 @property (nonatomic,readonly) NSString * iconIdentifier;
 @property (nonatomic,readonly) NSString * displayName;
 @end
@@ -117,19 +118,44 @@ static void loadNotificationIcon() {
 	[topWindow addSubview:paintView];
 }
 
-%hook SpringBoard
--(void)frontDisplayDidChange:(SBApplication *)arg1 {
-	%orig;
+
+#include <substrate.h>
+#if defined(__clang__)
+#if __has_feature(objc_arc)
+#define _LOGOS_SELF_TYPE_NORMAL __unsafe_unretained
+#define _LOGOS_SELF_TYPE_INIT __attribute__((ns_consumed))
+#define _LOGOS_SELF_CONST const
+#define _LOGOS_RETURN_RETAINED __attribute__((ns_returns_retained))
+#else
+#define _LOGOS_SELF_TYPE_NORMAL
+#define _LOGOS_SELF_TYPE_INIT
+#define _LOGOS_SELF_CONST
+#define _LOGOS_RETURN_RETAINED
+#endif
+#else
+#define _LOGOS_SELF_TYPE_NORMAL
+#define _LOGOS_SELF_TYPE_INIT
+#define _LOGOS_SELF_CONST
+#define _LOGOS_RETURN_RETAINED
+#endif
+
+@class SBUIController; @class SpringBoard; 
+static void (*_logos_orig$_ungrouped$SpringBoard$frontDisplayDidChange$)(_LOGOS_SELF_TYPE_NORMAL SpringBoard* _LOGOS_SELF_CONST, SEL, SBApplication *); static void _logos_method$_ungrouped$SpringBoard$frontDisplayDidChange$(_LOGOS_SELF_TYPE_NORMAL SpringBoard* _LOGOS_SELF_CONST, SEL, SBApplication *); static void (*_logos_orig$_ungrouped$SBUIController$updateBatteryState$)(_LOGOS_SELF_TYPE_NORMAL SBUIController* _LOGOS_SELF_CONST, SEL, id); static void _logos_method$_ungrouped$SBUIController$updateBatteryState$(_LOGOS_SELF_TYPE_NORMAL SBUIController* _LOGOS_SELF_CONST, SEL, id); 
+
+#line 120 "Tweak.x"
+
+static void _logos_method$_ungrouped$SpringBoard$frontDisplayDidChange$(_LOGOS_SELF_TYPE_NORMAL SpringBoard* _LOGOS_SELF_CONST __unused self, SEL __unused _cmd, SBApplication * arg1) {
+	_logos_orig$_ungrouped$SpringBoard$frontDisplayDidChange$(self, _cmd, arg1);
 	if (![[NSString stringWithFormat:@"%@",arg1] containsString:@"SBPowerDownViewController"]) {
 		if (arg1.bundleIdentifier && ![arg1.bundleIdentifier isEqualToString:@"com.apple.springboard"] && ![arg1.bundleIdentifier isEqualToString:(NSString*)[NSNull null]]) {
 			loadNotificationIcon();
 		}
 	}
 }
-%end
 
-%hook SBUIController
--(void)updateBatteryState:(id)arg1 {
+
+
+static void _logos_method$_ungrouped$SBUIController$updateBatteryState$(_LOGOS_SELF_TYPE_NORMAL SBUIController* _LOGOS_SELF_CONST __unused self, SEL __unused _cmd, id arg1) {
 	int batteryPercentage = [self batteryCapacityAsPercentage];
 	if (self.isConnectedToExternalChargingSource) {
 		if (batteryPercentage == 100) {
@@ -147,11 +173,11 @@ static void loadNotificationIcon() {
 		}
 	}
 	loadNotificationIcon();
-	%orig;
+	_logos_orig$_ungrouped$SBUIController$updateBatteryState$(self, _cmd, arg1);
 }
-%end
 
-%ctor {
+
+static __attribute__((constructor)) void _logosLocalCtor_f69f52ab(int __unused argc, char __unused **argv, char __unused **envp) {
 	NSDictionary *dict = [NSDictionary dictionaryWithContentsOfFile:plistPath];
 	NSMutableDictionary *prefs = dict ? [dict mutableCopy] : [NSMutableDictionary dictionary];
 	chosenColor = [UIColor greenColor];
@@ -170,3 +196,6 @@ static void loadNotificationIcon() {
 	int alphavalue = prefs[@"alpha"] ? [prefs[@"alpha"] intValue] : 100;
 	alpha = (float)alphavalue/100;
 }
+static __attribute__((constructor)) void _logosLocalInit() {
+{Class _logos_class$_ungrouped$SpringBoard = objc_getClass("SpringBoard"); { MSHookMessageEx(_logos_class$_ungrouped$SpringBoard, @selector(frontDisplayDidChange:), (IMP)&_logos_method$_ungrouped$SpringBoard$frontDisplayDidChange$, (IMP*)&_logos_orig$_ungrouped$SpringBoard$frontDisplayDidChange$);}Class _logos_class$_ungrouped$SBUIController = objc_getClass("SBUIController"); { MSHookMessageEx(_logos_class$_ungrouped$SBUIController, @selector(updateBatteryState:), (IMP)&_logos_method$_ungrouped$SBUIController$updateBatteryState$, (IMP*)&_logos_orig$_ungrouped$SBUIController$updateBatteryState$);}} }
+#line 173 "Tweak.x"
