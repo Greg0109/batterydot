@@ -139,14 +139,14 @@ static void loadNotificationIcon() {
 #define _LOGOS_RETURN_RETAINED
 #endif
 
-@class SpringBoard; @class SBUIController; 
+@class SBUIController; @class SpringBoard; 
 static void (*_logos_orig$_ungrouped$SpringBoard$frontDisplayDidChange$)(_LOGOS_SELF_TYPE_NORMAL SpringBoard* _LOGOS_SELF_CONST, SEL, SBApplication *); static void _logos_method$_ungrouped$SpringBoard$frontDisplayDidChange$(_LOGOS_SELF_TYPE_NORMAL SpringBoard* _LOGOS_SELF_CONST, SEL, SBApplication *); static void (*_logos_orig$_ungrouped$SBUIController$updateBatteryState$)(_LOGOS_SELF_TYPE_NORMAL SBUIController* _LOGOS_SELF_CONST, SEL, id); static void _logos_method$_ungrouped$SBUIController$updateBatteryState$(_LOGOS_SELF_TYPE_NORMAL SBUIController* _LOGOS_SELF_CONST, SEL, id); 
 
 #line 120 "Tweak.x"
 
 static void _logos_method$_ungrouped$SpringBoard$frontDisplayDidChange$(_LOGOS_SELF_TYPE_NORMAL SpringBoard* _LOGOS_SELF_CONST __unused self, SEL __unused _cmd, SBApplication * arg1) {
 	_logos_orig$_ungrouped$SpringBoard$frontDisplayDidChange$(self, _cmd, arg1);
-	if (![[NSString stringWithFormat:@"%@",arg1] containsString:@"SBPowerDownViewController"]) {
+	if (![[NSString stringWithFormat:@"%@",arg1] containsString:@"SBPowerDownViewController"] && ![[NSString stringWithFormat:@"%@", arg1] containsString:@"Overlay"]) {
 		if (arg1.bundleIdentifier && ![arg1.bundleIdentifier isEqualToString:@"com.apple.springboard"] && ![arg1.bundleIdentifier isEqualToString:(NSString*)[NSNull null]]) {
 			loadNotificationIcon();
 		}
@@ -177,7 +177,7 @@ static void _logos_method$_ungrouped$SBUIController$updateBatteryState$(_LOGOS_S
 }
 
 
-static __attribute__((constructor)) void _logosLocalCtor_f69f52ab(int __unused argc, char __unused **argv, char __unused **envp) {
+static __attribute__((constructor)) void _logosLocalCtor_c3ccdc8d(int __unused argc, char __unused **argv, char __unused **envp) {
 	NSDictionary *dict = [NSDictionary dictionaryWithContentsOfFile:plistPath];
 	NSMutableDictionary *prefs = dict ? [dict mutableCopy] : [NSMutableDictionary dictionary];
 	chosenColor = [UIColor greenColor];

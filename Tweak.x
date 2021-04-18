@@ -120,7 +120,7 @@ static void loadNotificationIcon() {
 %hook SpringBoard
 -(void)frontDisplayDidChange:(SBApplication *)arg1 {
 	%orig;
-	if (![[NSString stringWithFormat:@"%@",arg1] containsString:@"SBPowerDownViewController"]) {
+	if (![[NSString stringWithFormat:@"%@",arg1] containsString:@"SBPowerDownViewController"] && ![[NSString stringWithFormat:@"%@", arg1] containsString:@"Overlay"]) {
 		if (arg1.bundleIdentifier && ![arg1.bundleIdentifier isEqualToString:@"com.apple.springboard"] && ![arg1.bundleIdentifier isEqualToString:(NSString*)[NSNull null]]) {
 			loadNotificationIcon();
 		}
